@@ -1,13 +1,14 @@
 import React from "react";
 import "../styles/MovieCard.css";
-function MovieCard() {
-  const movie = { title: "Mr.robot", year: "2020" };
-
+function MovieCard({ movie }) {
   function handleFavoriteClick() {}
   return (
     <div className="movie-card">
       <div className="movie-poster">
-        <img src="" alt={movie.title} />
+        <img
+          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          alt={movie.title}
+        />
         <div className="movie-overlay">
           <button className={"favorite-btn"} onClick={handleFavoriteClick}>
             ♥
@@ -16,7 +17,7 @@ function MovieCard() {
       </div>
       <div className="movie-info">
         <h3>{movie.title}</h3>
-        <p>{movie.year}</p>
+        <p>{movie.release_date?.split("-")[0]}</p>
       </div>
     </div>
   );
