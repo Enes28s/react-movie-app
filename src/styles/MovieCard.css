@@ -2,11 +2,12 @@
   position: relative;
   border-radius: 8px;
   overflow: hidden;
-  background-color: #1a1a1a;
+  background-color: #543310;
   transition: transform 0.2s;
   height: 100%;
   display: flex;
   flex-direction: column;
+  max-width: 300px;
 }
 
 .movie-card:hover {
@@ -52,7 +53,7 @@
   position: absolute;
   top: 1rem;
   right: 1rem;
-  color: white;
+  color: #f8f4e1;
   font-size: 1.5rem;
   padding: 0.5rem;
   background-color: rgba(0, 0, 0, 0.5);
@@ -89,6 +90,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  color: #f8f4e1;
 }
 
 .movie-info h3 {
