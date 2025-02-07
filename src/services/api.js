@@ -15,5 +15,22 @@ export const searchMovies = async (query) => {
   );
   const data = await response.json();
   return data.results;
-  learrc;
+};
+
+export const getMovieDirector = async (movieId) => {
+  try {
+    const response = await fetch(
+      `${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}`
+    );
+    if (!response.ok) {
+      throw new Error("Network error");
+    }
+    const data = await response.json();
+
+    const director = data.crew.find((member) => member.job === "Director");
+    return director;
+  } catch (error) {
+    console.error("Director fetch error", error);
+    return null;
+  }
 };

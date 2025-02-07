@@ -1,7 +1,11 @@
 import React, { lazy, use, useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
 import "../styles/Home.css";
-import { getPopularMovies, searchMovies } from "../services/api";
+import {
+  getPopularMovies,
+  searchMovies,
+  getMovieDirector,
+} from "../services/api";
 
 function Home() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -9,20 +13,29 @@ function Home() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const loadPopularMovies = async () => {
-      try {
-        const popularMovies = await getPopularMovies();
-        setMovies(popularMovies);
-      } catch (err) {
-        console.log(err);
-        setError("Failed to load movies...");
-      } finally {
-        setLoading(false);
-      }
-    };
+  const loadMoviesWithDirector = async (fetchMoviesFunction) => {
+    try {
+      const fetchedMovies = await fetchMoviesFunction();
+      const moviesWithDirector = await Promise.all(
+        fetchedMovies.map(async (movie) => {
+          const directorData = await getMovieDirector(movie.id);
+          return {
+            ...movie,
+            director: directorData ? directorData.name : "No director info.",
+          };
+        })
+      );
+      setMovies(moviesWithDirector);
+    } catch (err) {
+      console.error(err);
+      setError("Failed to load movies...");
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    loadPopularMovies();
+  useEffect(() => {
+    loadMoviesWithDirector(getPopularMovies);
   }, []);
 
   async function handleSearch(e) {
@@ -32,11 +45,10 @@ function Home() {
 
     setLoading(true);
     try {
-      const searchResults = await searchMovies(searchQuery);
-      setMovies(searchResults);
+      await loadMoviesWithDirector(() => searchMovies(searchQuery));
       setError(null);
     } catch (err) {
-      setError(err);
+      setError("Failed to load search results.");
     } finally {
       setLoading(false);
     }

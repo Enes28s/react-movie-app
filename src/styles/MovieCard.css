@@ -4,10 +4,11 @@
   overflow: hidden;
   background-color: #543310;
   transition: transform 0.2s;
-  height: 100%;
+  height: 600px;
   display: flex;
   flex-direction: column;
   max-width: 300px;
+  width: 300px;
 }
 
 .movie-card:hover {
@@ -18,12 +19,14 @@
   position: relative;
   aspect-ratio: 2/3;
   width: 100%;
+  height: 456px;
 }
 
 .movie-poster img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  max-height: 456px;
 }
 
 .movie-overlay {
@@ -69,13 +72,34 @@
   justify-content: center;
   transition: background-color 0.2s;
 }
+.watched-btn {
+  top: 1rem;
+  right: 1rem;
+  color: #f8f4e1;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
 
 .favorite-btn:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
+.watched-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
 
 .favorite-btn.active {
-  color: #ff4757;
+  color: yellow;
+}
+.watched-btn.active {
+  color: rgb(0, 184, 0);
 }
 
 .rating-select {

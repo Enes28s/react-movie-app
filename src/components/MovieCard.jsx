@@ -1,6 +1,8 @@
 import React from "react";
 import "../styles/MovieCard.css";
 import { useMovieContext } from "../context/movieContext";
+import { Check, Clock } from "lucide-react";
+import nosignal from "../assets/nosignal.jpg";
 
 function MovieCard({ movie }) {
   const {
@@ -30,7 +32,11 @@ function MovieCard({ movie }) {
     <div className="movie-card">
       <div className="movie-poster">
         <img
-          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          src={
+            movie.poster_path
+              ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+              : nosignal
+          }
           alt={movie.title}
         />
         <div className="movie-overlay">
@@ -39,20 +45,21 @@ function MovieCard({ movie }) {
               className={`favorite-btn ${favorite ? "active" : ""}`}
               onClick={onFavoriteClick}
             >
-              🕓
+              <Clock />
             </button>
             <button
-              className={`favorite-btn ${watched ? "active" : ""}`}
+              className={`watched-btn ${watched ? "active" : ""}`}
               onClick={onWatchedClick}
             >
-              ✔
+              <Check />
             </button>
           </div>
         </div>
       </div>
       <div className="movie-info">
         <h3>{movie.title}</h3>
-        <p>{movie.release_date?.split("-")[0]}</p>
+        <h3>{movie.director}</h3>
+        <p>{movie.release_date ? movie.release_date?.split("-")[0] : "2012"}</p>
       </div>
     </div>
   );
