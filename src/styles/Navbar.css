@@ -26,6 +26,7 @@
   padding: 0.5rem 1rem;
   border-radius: 4px;
   transition: background-color 0.2s;
+  color: #f8f4e1;
 }
 .nav-link.active {
   background-color: rgba(255, 255, 255, 0.1);

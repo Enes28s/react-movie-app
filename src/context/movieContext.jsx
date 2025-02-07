@@ -57,6 +57,14 @@ export const MovieProvider = ({ children }) => {
     return watched.some((movie) => movie.id === movieId);
   };
 
+  const updateWatchDate = (movieId, newDate) => {
+    setWatched((prev) =>
+      prev.map((movie) =>
+        movie.id === movieId ? { ...movie, watchDate: newDate } : movie
+      )
+    );
+  };
+
   const value = {
     favorites,
     addToFavorites,
@@ -66,6 +74,7 @@ export const MovieProvider = ({ children }) => {
     addToWatched,
     removeFromWatched,
     isWatched,
+    updateWatchDate,
   };
 
   return (

@@ -1,10 +1,10 @@
-.watchlater {
+.watched {
   padding: 2rem;
   width: 100%;
   box-sizing: border-box;
 }
 
-.watchlater h2 {
+.watched h2 {
   margin-bottom: 2rem;
   text-align: center;
   font-size: 2rem;
@@ -12,8 +12,7 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   border-bottom: 1px solid #f8f4e1;
 }
-
-.watchlater-empty {
+.watched-empty {
   text-align: center;
   padding: 4rem 2rem;
   background-color: rgba(255, 255, 255, 0.05);
@@ -22,19 +21,17 @@
   max-width: 600px;
 }
 
-.watchlater-empty h2 {
+.watched-empty h2 {
   margin-bottom: 1rem;
   font-size: 2rem;
   color: #f8f4e1;
 }
 
-.watchlater-empty p {
+.watched-empty p {
   color: rgba(255, 255, 255, 0.6);
   font-size: 1.2rem;
   line-height: 1.6;
 }
-
-/* Animation for new watchlater being added */
 @keyframes fadeIn {
   from {
     opacity: 0;

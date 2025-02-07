@@ -1,0 +1,32 @@
+.editable {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #543310;
+  color: #f8f4e1;
+  padding: 10px 20px;
+  border: 1px solid #f8f4e1;
+  border-radius: 40px;
+  transition: all 1s ease;
+  font-size: 16px;
+}
+.editable p {
+  font-size: 16px;
+}
+.editable input {
+  border: none;
+  outline: none;
+  background-color: #543310;
+  color: #f8f4e1;
+  width: 80px;
+  font-size: 16px;
+  transition: all 1s ease;
+}
+.editable input:focus {
+  background-color: #f8f4e1;
+  color: #543310;
+}
+
+.editable:focus-within {
+  background-color: #f8f4e1;
+}
