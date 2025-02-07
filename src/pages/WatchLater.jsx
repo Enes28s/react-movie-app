@@ -1,14 +1,15 @@
 import React from "react";
 import { useMovieContext } from "../context/movieContext";
 import MovieCard from "../components/MovieCard";
+import "../styles/Watchlater.css";
 
-function Favorites() {
+function WatchLater() {
   const { favorites } = useMovieContext();
 
   if (favorites) {
     return (
-      <div className="favorites">
-        <h2>Your Favorites</h2>
+      <div className="watchlater">
+        <h2>Watch Later</h2>
         <div className="movies-grid">
           {favorites.map((movie) => (
             <MovieCard movie={movie} key={movie.id} />
@@ -19,11 +20,11 @@ function Favorites() {
   }
 
   return (
-    <div className="favorites-empty">
+    <div className="watchlater-empty">
       <h2>No Favorite Movies Yet</h2>
       <p>Start adding movies to your favorites and they will appear here!</p>
     </div>
   );
 }
 
-export default Favorites;
+export default WatchLater;

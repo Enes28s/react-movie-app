@@ -13,8 +13,11 @@ function Navbar() {
           <NavLink to="/" className="nav-link">
             Home
           </NavLink>
-          <NavLink to="/favorites" className="nav-link">
-            Favorites
+          <NavLink to="/watchlater" className="nav-link">
+            Watch Later
+          </NavLink>
+          <NavLink to="/watched" className="nav-link">
+            Watched
           </NavLink>
         </div>
       </div>
