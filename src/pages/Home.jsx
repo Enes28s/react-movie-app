@@ -6,6 +6,7 @@ import {
   searchMovies,
   getMovieDirector,
 } from "../services/api";
+import { useMovieContext } from "../context/movieContext";
 
 function Home() {
   const [searchQuery, setSearchQuery] = useState("");

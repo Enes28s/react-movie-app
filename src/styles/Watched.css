@@ -32,6 +32,16 @@
   font-size: 1.2rem;
   line-height: 1.6;
 }
+.year-title {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #f8f4e1;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid #f8f4e1;
+  width: 5rem;
+  align-items: center;
+}
 @keyframes fadeIn {
   from {
     opacity: 0;
